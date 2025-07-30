@@ -1,0 +1,154 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>eBASE Africa PSEA Reporting Platform</title>
+  <style>
+    :root {
+      --green: #228B22;
+      --light-green: #e6f9e6;
+      --text-color: #333;
+      --white: #fff;
+    }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: var(--light-green);
+      color: var(--text-color);
+      line-height: 1.6;
+    }
+    header {
+      background-color: var(--green);
+      color: var(--white);
+      padding: 1rem;
+      text-align: center;
+      position: relative;
+    }
+    .language-toggle {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      background: var(--white);
+      color: var(--green);
+      border: none;
+      padding: 0.5rem 1rem;
+      cursor: pointer;
+      border-radius: 4px;
+      font-weight: bold;
+    }
+    nav {
+      background: #2e8b57;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      padding: 0.5rem;
+    }
+    nav a {
+      color: var(--white);
+      padding: 0.75rem 1rem;
+      text-decoration: none;
+      transition: background 0.3s ease;
+    }
+    nav a:hover {
+      background-color: #1e5f3d;
+    }
+    main {
+      padding: 1.5rem;
+    }
+    section {
+      display: none;
+      margin-bottom: 2rem;
+    }
+    section.active {
+      display: block;
+    }
+    h2 {
+      margin-bottom: 1rem;
+      color: var(--green);
+    }
+    form label,
+    form input,
+    form textarea,
+    form select {
+      display: block;
+      width: 100%;
+      margin-bottom: 1rem;
+    }
+    form input[type="checkbox"],
+    form input[type="radio"] {
+      width: auto;
+      display: inline-block;
+      margin-right: 0.5rem;
+    }
+    form button {
+      background: var(--green);
+      color: var(--white);
+      padding: 0.75rem 1.5rem;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    form button:hover {
+      background: #1e5f3d;
+    }
+    footer {
+      text-align: center;
+      padding: 1rem;
+      background-color: var(--green);
+      color: var(--white);
+    }
+    .fr { display: none; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1><span class="en">eBASE Africa PSEA Reporting Platform</span><span class="fr">Plateforme de Signalement PSEA d'eBASE Africa</span></h1>
+    <button class="language-toggle" onclick="toggleLanguage()">Français</button>
+  </header>
+  <nav>
+    <a href="#" onclick="showSection('intro')"><span class="en">Home</span><span class="fr">Accueil</span></a>
+    <a href="#" onclick="showSection('definitions')"><span class="en">Definitions</span><span class="fr">Définitions</span></a>
+    <a href="#" onclick="showSection('reporting-form')"><span class="en">Report Form</span><span class="fr">Formulaire</span></a>
+    <a href="#" onclick="showSection('after-report')"><span class="en">After Reporting</span><span class="fr">Après Signalement</span></a>
+    <a href="#" onclick="showSection('faq')"><span class="en">FAQs</span><span class="fr">FAQs</span></a>
+    <a href="#" onclick="showSection('accused')"><span class="en">If Accused</span><span class="fr">Si Accusé</span></a>
+    <a href="#" onclick="showSection('support')"><span class="en">Support</span><span class="fr">Soutien</span></a>
+    <a href="#" onclick="showSection('other-report')"><span class="en">Other Ways</span><span class="fr">Autres Moyens</span></a>
+    <a href="#" onclick="showSection('resources')"><span class="en">Resources</span><span class="fr">Ressources</span></a>
+  </nav>
+  <main>
+    <section id="intro" class="active">
+      <h2><span class="en">Welcome</span><span class="fr">Bienvenue</span></h2>
+      <p class="en">We believe in dignity, safety, and respect for all...</p>
+      <p class="fr">Nous croyons en la dignité, la sécurité et le respect pour tous...</p>
+    </section>
+  </main>
+  <footer>&copy; 2025 eBASE Africa</footer>
+  <script>
+    function showSection(id) {
+      document.querySelectorAll('section').forEach(s => s.classList.remove('active'));
+      document.getElementById(id).classList.add('active');
+    }
+    function toggleLanguage() {
+      const enItems = document.querySelectorAll('.en');
+      const frItems = document.querySelectorAll('.fr');
+      const button = document.querySelector('.language-toggle');
+      if (button.textContent === 'Français') {
+        enItems.forEach(el => el.style.display = 'none');
+        frItems.forEach(el => el.style.display = 'inline');
+        button.textContent = 'English';
+      } else {
+        enItems.forEach(el => el.style.display = 'inline');
+        frItems.forEach(el => el.style.display = 'none');
+        button.textContent = 'Français';
+      }
+    }
+  </script>
+</body>
+</html>
